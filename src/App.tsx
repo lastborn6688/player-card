@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Navbar from './component/Navbar';
 
 const App = () => {
   const [players, setPlayers] = useState([
@@ -32,7 +33,10 @@ const App = () => {
   ]);
 
   return (
-    <main className='flex justify-evenly bg-black has-[100vh]:'>
+    <>
+    <Navbar />
+    <h1 className='font-bold text-3xl flex justify-center'>This is the three best players in my opinion</h1>
+    <main className='flex justify-evenly  has-[100vh]:'>
       {players.map((player, index) => (
         <div
           key={index}
@@ -40,7 +44,7 @@ const App = () => {
         >
           <img
             src={player.image}
-            className='rounded-2xl object-contain'
+            className='rounded-2xl object-contain bg-amber-300'
             alt={player.name}
           />
           <h2 className='text-3xl font-semibold'>{player.name}</h2>
@@ -55,6 +59,7 @@ const App = () => {
         </div>
       ))}
     </main>
+    </>
   );
 };
 
